@@ -125,7 +125,7 @@ export const LoginForm = () => {
               className="w-60 mt-3 bg-[#5C776B] rounded-full hover:bg-[#475D53] boton-login"
             >
               Iniciar Sesión
-              {isPending ? <LoaderCircle className="ml-2 animate-spin" /> : ""}
+              {isPending ?? <LoaderCircle className="ml-2 animate-spin" />}
             </Button>
           </div>
         </form>
