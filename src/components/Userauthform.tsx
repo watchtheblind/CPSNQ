@@ -1,8 +1,7 @@
 "use client";
 
 import * as React from "react";
-import cn from "../src/lib/utils";
-// import { cn } from "./src/lib/utils";
+import cn from "./ui/lib/utils";
 import { Icons } from "./icons";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -10,7 +9,10 @@ import { Label } from "./ui/label";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
+export default function UserAuthForm({
+  className,
+  ...props
+}: UserAuthFormProps) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
   async function onSubmit(event: React.SyntheticEvent) {
