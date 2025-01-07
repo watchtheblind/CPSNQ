@@ -1,7 +1,7 @@
 import "./App.css";
 // import { cn } from "@/lib/utils";
-import { buttonVariants } from "./components/ui/button";
-import UserAuthForm from "./components/Userauthform";
+import { buttonVariants } from "../components/ui/button";
+import UserAuthForm from "../components/Userauthform";
 export default function AuthenticationPage() {
   return (
     <>
