@@ -1,8 +1,8 @@
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 export function LoginForm({
   className,
@@ -96,9 +96,10 @@ export function LoginForm({
         </CardContent>
       </Card>
       <div className="text-balance text-center text-xs text-zinc-500 [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-zinc-900 dark:text-zinc-400 dark:hover:[&_a]:text-zinc-50">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a>{""}
+        By clicking continue, you agree to our <a href="#">Terms of Service</a>
+        {""}
         and <a href="#">Privacy Policy</a>.
       </div>
     </div>
-  )
+  );
 }
