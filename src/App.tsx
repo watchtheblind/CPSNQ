@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <main className="container">
+      <main>
         <div className="flex min-h-svh flex-col items-center justify-center">
           <div className="w-full max-w-sm md:max-w-3xl">
             <LoginForm />
