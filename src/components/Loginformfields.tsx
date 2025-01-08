@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, useFormContext } from "react-hook-form";
 import type { FieldPath } from "react-hook-form";
-import { z } from "@/components/zod";
+import { z } from "@/lib/zod";
 
 const formSchema = z.object({
   email: z.string().min(11).max(50),
