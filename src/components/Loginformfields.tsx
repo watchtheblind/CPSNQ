@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useTransition } from "react";
 import { Button } from "@/components/ui/button";
-import { Alert } from "@/components/ui/alert";
 import { LoaderCircle } from "lucide-react";
 import {
   Form,
@@ -116,11 +115,7 @@ const LoginFormField: React.FC<LoginFormFieldProps> = ({
       <FormField
         control={control}
         name={name}
-        render={({
-          field,
-        }: {
-          field: FieldPath<z.infer<typeof formSchema>>;
-        }) => (
+        render={({ field }) => (
           <FormItem>
             <FormLabel className="text-base">{label}</FormLabel>
             <FormControl>
