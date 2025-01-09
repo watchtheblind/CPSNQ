@@ -54,28 +54,6 @@ export function Welcomescreen({
               ) : (
                 <LoginForm />
               )}
-
-              {/* <div className="grid gap-2">
-                <Label htmlFor="email">Correo</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="ElsaPatero@gmail.com"
-                  required
-                />
-              </div>
-              <div className="grid gap-2">
-                <div className="flex items-center">
-                  <Label htmlFor="password">Contraseña</Label>
-                  <a
-                    href="#"
-                    className="ml-auto text-sm underline-offset-2 hover:underline"
-                  >
-                    ¿Olvidó su contraseña?
-                  </a>
-                </div>
-                <Input id="password" type="password" required />
-              </div> */}
               {isLogin && (
                 <>
                   <div className="relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border">
