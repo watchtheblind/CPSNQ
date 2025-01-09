@@ -17,13 +17,13 @@ import { useForm, useFormContext } from "react-hook-form";
 import type { FieldPath } from "react-hook-form";
 import { z } from "@/lib/zod";
 
-const formSchema = z.object({
+const FormSchema = z.object({
   email: z.string().min(11).max(50),
   password: z.string().min(6).max(50),
 });
 
 interface LoginFormFieldProps {
-  name: FieldPath<z.infer<typeof formSchema>>;
+  name: FieldPath<z.infer<typeof FormSchema>>;
   label: string;
   placeholder?: string;
   description?: string;
@@ -32,7 +32,7 @@ interface LoginFormFieldProps {
   disabled?: any;
 }
 
-const InicioSesionForm = () => {
+const LoginForm = () => {
   const [isPending, startTransition] = useTransition();
   const [attempts, setAttemps] = useState(1);
   const [Error, setError] = useState(false);
@@ -46,9 +46,14 @@ const InicioSesionForm = () => {
   //     setError((error) => !error);
   //   }, 10000);
   // };
+
+  function submitData(data: z.infer<typeof FormSchema>) {
+    alert("you submitted: " + JSON.stringify(data));
+    // <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+  }
   /*creating a Form instance*/
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
     defaultValues: {
       email: "",
       password: "",
@@ -59,17 +64,15 @@ const InicioSesionForm = () => {
     <>
       <Form {...form}>
         <form
-          onSubmit={() => {
-            null;
-          }}
+          onSubmit={form.handleSubmit(submitData)}
           className=" justify-center space-y-4"
         >
           <LoginFormField
             disabled={isPending || disableButton}
             charLenght={30}
             name="email"
-            label="email Electrónico"
-            placeholder="email"
+            label="Correo Electronico"
+            placeholder="elsapatero@gmail.com"
             inputType="email"
           />
           <LoginFormField
@@ -83,19 +86,15 @@ const InicioSesionForm = () => {
             <Button
               type="submit"
               disabled={isPending || disableButton}
-              className="w-60 mt-3 bg-[#5C776B] rounded-full hover:bg-[#475D53] boton-login"
+              className="w-60 mt-3"
             >
               Iniciar Sesión
-              {isPending ? <LoaderCircle className="ml-2 animate-spin" /> : ""}
+              {isPending && <LoaderCircle className="ml-2 animate-spin" />}
             </Button>
           </div>
         </form>
       </Form>
-      {Error && (
-        <div className="mt-4 visible animate-pulse">
-          <Alert />
-        </div>
-      )}
+      {Error && <div className="mt-4 visible animate-pulse"></div>}
     </>
   );
 };
@@ -117,12 +116,11 @@ const LoginFormField: React.FC<LoginFormFieldProps> = ({
         name={name}
         render={({ field }) => (
           <FormItem>
-            <FormLabel className="text-base">{label}</FormLabel>
+            <FormLabel>{label}</FormLabel>
             <FormControl>
               <Input
                 disabled={disabled}
                 maxLength={charLenght}
-                className="mt-2 mb-5 w-80 bg-transparent rounded-full elemento-login"
                 placeholder={placeholder}
                 type={inputType || "text"}
                 {...field}
@@ -136,4 +134,4 @@ const LoginFormField: React.FC<LoginFormFieldProps> = ({
     </>
   );
 };
-export default InicioSesionForm;
+export default LoginForm;

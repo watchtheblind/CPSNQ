@@ -1,5 +1,5 @@
 import "./App.css";
-import { LoginForm } from "./components/login-form";
+import { Welcomescreen } from "./components/WelcomeScreen";
 import { ThemeProvider } from "@/components/theme-provider";
 function App() {
   return (
@@ -7,7 +7,7 @@ function App() {
       <main>
         <div className="flex min-h-svh flex-col items-center justify-center">
           <div className="w-full max-w-sm md:max-w-3xl">
-            <LoginForm />
+            <Welcomescreen />
           </div>
         </div>
       </main>

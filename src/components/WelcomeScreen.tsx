@@ -5,7 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ModeToggle } from "./mode-toggle";
 import { useState } from "react";
-export function LoginForm({
+import LoginForm from "./Loginformfields";
+export function Welcomescreen({
   className,
   ...props
 }: React.ComponentProps<"div">) {
@@ -18,7 +19,7 @@ export function LoginForm({
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="overflow-hidden">
         <CardContent className="grid p-0 md:grid-cols-2">
-          <form className="p-6 md:p-8">
+          <div className="p-6 md:p-8">
             <ModeToggle></ModeToggle>
             <div className="flex flex-col gap-6">
               <div className="flex flex-col items-center text-center">
@@ -31,7 +32,7 @@ export function LoginForm({
                     : "Regístrese para poder acceder"}
                 </p>
               </div>
-              {!isLogin && (
+              {!isLogin ? (
                 <div className="grid w-full items-center gap-4">
                   <div className="flex flex-col space-y-1.5">
                     <Label htmlFor="name">Nombres</Label>
@@ -50,8 +51,11 @@ export function LoginForm({
                     <Input id="name" placeholder="1354567" />
                   </div>
                 </div>
+              ) : (
+                <LoginForm />
               )}
-              <div className="grid gap-2">
+
+              {/* <div className="grid gap-2">
                 <Label htmlFor="email">Correo</Label>
                 <Input
                   id="email"
@@ -71,10 +75,7 @@ export function LoginForm({
                   </a>
                 </div>
                 <Input id="password" type="password" required />
-              </div>
-              <Button type="submit" className="w-full">
-                {isLogin ? "Registrarse" : "Iniciar Sesión"}
-              </Button>
+              </div> */}
               {isLogin && (
                 <>
                   <div className="relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border">
@@ -122,7 +123,7 @@ export function LoginForm({
                 </a>
               </div>
             </div>
-          </form>
+          </div>
           <div className="relative hidden bg-muted md:block">
             <img
               src="./public/physician.png"
