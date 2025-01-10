@@ -75,6 +75,7 @@ const SignUpFormFieldsData = [
   {
     name: "phonenumber" as const,
     label: "Número Telefónico",
+    placeholder: "04241234567",
     inputType: "tel",
     charLenght: 11,
   },
