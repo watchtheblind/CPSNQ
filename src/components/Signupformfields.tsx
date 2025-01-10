@@ -18,11 +18,11 @@ import type { FieldPath } from "react-hook-form";
 import { z } from "@/lib/zod";
 
 const FormSchema = z.object({
-  email: z.string().min(11).max(50),
-  password: z.string().min(6).max(50),
+  email: z.string().email().min(11).max(50),
+  password: z.string().min(6).max(20),
   names: z.string().min(2).max(50),
-  lastnames: z.string().min(2).max(50),
   document: z.string().min(7).max(8),
+  lastnames: z.string().min(2).max(50),
   phonenumber: z.string().min(11).max(11),
 });
 
@@ -53,26 +53,30 @@ const SignUpFormFieldsData = [
   {
     name: "names" as const,
     label: "Nombres",
+    placeholder: "Juan Carlos",
     inputType: "string",
     charLenght: 60,
   },
   {
     name: "lastnames" as const,
     label: "Apellidos",
+    placeholder: "Bodoque Rulfo",
     inputType: "string",
     charLenght: 70,
   },
   {
     name: "document" as const,
-    label: "Cedula",
-    inputType: "number",
+    label: "Cedula de identidad",
+    description: "Solo números",
+    placeholder: "12345678",
+    inputType: "tel",
     charLenght: 8,
   },
   {
     name: "phonenumber" as const,
-    label: "Teléfono",
+    label: "Número Telefónico",
     inputType: "tel",
-    charLenght: 8,
+    charLenght: 11,
   },
 ];
 
@@ -147,7 +151,7 @@ const SignUpForm = () => {
               disabled={isPending || disableButton}
               className="w-60 mt-3"
             >
-              Register
+              Registrarse
               {isPending && <LoaderCircle className="ml-2 animate-spin" />}
             </Button>
           </div>

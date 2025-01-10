@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { ModeToggle } from "./mode-toggle";
 import { useState } from "react";
 import LoginForm from "./Loginformfields";
+import SignUpForm from "./Signupformfields";
 export function Welcomescreen({
   className,
   ...props
@@ -32,28 +33,7 @@ export function Welcomescreen({
                     : "Regístrese para poder acceder"}
                 </p>
               </div>
-              {!isLogin ? (
-                <div className="grid w-full items-center gap-4">
-                  <div className="flex flex-col space-y-1.5">
-                    <Label htmlFor="name">Nombres</Label>
-                    <Input id="name" placeholder="Juan José" />
-                  </div>
-                  <div className="flex flex-col space-y-1.5">
-                    <Label htmlFor="name">Apellidos</Label>
-                    <Input id="name" placeholder="Villa Campos" />
-                  </div>
-                  <div className="flex flex-col space-y-1.5">
-                    <Label htmlFor="name">Cédula de identidad</Label>
-                    <Input id="name" placeholder="1354567" />
-                  </div>
-                  <div className="flex flex-col space-y-1.5">
-                    <Label htmlFor="name">Teléfono</Label>
-                    <Input id="name" placeholder="1354567" />
-                  </div>
-                </div>
-              ) : (
-                <LoginForm />
-              )}
+              {!isLogin ? <SignUpForm></SignUpForm> : <LoginForm />}
               {isLogin && (
                 <>
                   <div className="relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border">
